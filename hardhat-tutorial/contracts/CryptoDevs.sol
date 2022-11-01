@@ -31,7 +31,7 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
 
     function presaleMint () public payable onlyWhenNotPaused {
         require (presaleStarted && block.timestamp < presaleEnded, "Presale is not running");
-        require (whitelist.whitelistedAddresses(msg.sender), "You're not whitelisted, unfortunately you can't participate the presale");
+        require (whitelist.whitelistedAddresses(msg.sender), "You are not whitelisted, unfortunately you can not participate the presale");
         require (tokenIds < maxTokenIds, "Exceeded maximum Crypto Devs supply for presale");
         require (msg.value >= _price, "Ether sent is not correct");
         tokenIds += 1;
